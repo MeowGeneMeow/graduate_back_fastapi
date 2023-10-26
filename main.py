@@ -3,15 +3,37 @@ import uvicorn
 
 app = FastAPI()
 
+## Example
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, query_param: str = None):
-    return {"item_id": item_id, "query_param": query_param}
+
+## Database 區域
+
+@app.post("/upload_data")
+def upload_data():
+    return "not yet"
+@app.get("/get_day_summary")
+def get_day_summary():
+    return "not yet"
+
+@app.get("/get_day_table")
+def get_day_table():
+    return "not yet"
+
+
+## Airflow 區域
+@app.get("/task_status")
+def task_status():
+    return "not yet"
+
+## Wandb 區域
+@app.get("/wandb_config")
+def wandb_config():
+    return "not yet"
+
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
-
-# 編輯成功
+    uvicorn.run(app, host="127.0.0.1", port=9527)
